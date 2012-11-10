@@ -18,7 +18,7 @@
     {% compress css %}
     <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.responsive.css">
-    {# <link rel="stylesheet" href="{{ STATIC_URL }}css/mezzanine.css"> #}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/mezzanine.css">
     {% ifinstalled cartridge.shop %}
     <link rel="stylesheet" href="{{ STATIC_URL }}css/cartridge.css">
     {% endifinstalled %}
@@ -80,12 +80,18 @@
     {% endblock %}
     
     {% block script_base %}
-            <script src="{% block jquery_src %}{% static "pinax/js/jquery.js" %}{% endblock %}"></script>
-            <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
-            <script src="{% static "pinax/js/theme.js" %}"></script>
-            {% block extra_script %}{% endblock %}
+        {% compress js %}
+        <script src="{{ STATIC_URL }}mezzanine/js/{{ settings.JQUERY_FILENAME }}"></script>
+        <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+        <script>
+        $(function() {
+            $('.middleinput:text, textarea').addClass('xlarge');
+            $('.control-group label').addClass('control-label');
+        });
+        </script>
+        {% block extra_script %}{% endblock %}
+        {% endcompress %}
     {% endblock %}
-
 
 </body>
 </html>
