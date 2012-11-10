@@ -25,11 +25,9 @@ grappelli-safe==0.2.10
 html5lib==0.95
 metron==1.0
 mezzanine-mdown==0.1a3
-mezzanine-themes==0.2
 paramiko==1.9.0
 pinax-theme-bootstrap==2.2.1
 pinax-theme-bootstrap-account==1.0b2
-pinax-utils==1.0b1.dev3
 pisa==3.0.33
 psycopg2==2.4.5
 pycrypto==2.6
